@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -25,22 +25,20 @@ const menuItems = [
   { icon: QuestionMarkCircleIcon, label: 'FAQ', path: '/faq' }
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ isCollapsed, setIsCollapsed }) {
   const location = useLocation();
-  const [isCollapsed, setIsCollapsed] = useState(false);
   const isActive = (path) => location.pathname === path;
 
   return (
     <motion.div 
-      initial={{ x: -250 }}
+      initial={{ width: 256 }}
       animate={{ 
-        x: 0,
-        width: isCollapsed ? 80 : 256
+        width: isCollapsed ? 80 : 256,
+        transition: { duration: 0.3 }
       }}
-      transition={{ duration: 0.3 }}
       className="fixed left-0 top-0 h-screen bg-black/80 backdrop-blur-md border-r border-white/10 z-50"
     >
-      <div className="p-6 flex items-center justify-between">
+      <div className="p-6 flex items-center justify-between border-b border-white/10">
         <AnimatePresence>
           {!isCollapsed && (
             <motion.h1
@@ -65,7 +63,7 @@ export default function Sidebar() {
         </button>
       </div>
       
-      <nav className="px-4 py-4">
+      <nav className="p-4 h-[calc(100vh-88px)] overflow-y-auto">
         {menuItems.map((item) => (
           <Link
             key={item.path}
