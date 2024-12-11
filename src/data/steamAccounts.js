@@ -137,7 +137,7 @@ export const steamAccounts = [
     game: "Assassin's Creed Odyssey",
     username: 'suku_221',
     password: 'Suku853715',
-    imageUrl: 'https://image.api.playstation.com/vulcan/ap/rnd/202208/0921/dR6L1YQli1wDo1yKz1kFrg8C.jpg',
+    imageUrl: 'https://cdn1.epicgames.com/clary/offer/GameName_Store_Landscape_2560x1440%20(1)-2560x1440-2456ec2b7ad7c1a093330e607965d985.jpg',
     description: '• Full Game Access\n• All DLC Content\n• Season Pass\n• All Abilities\n• Special Items\n• Legendary Equipment',
     features: [
       { label: 'Region', value: 'Global' },
@@ -244,6 +244,72 @@ export const steamAccounts = [
     rarity: 'mythic'
   },
   // Legendary Accounts
+  {
+    game: 'The Outlast Trials',
+    username: 'ddoozz6684',
+    password: 'Qj84wjsplay',
+    imageUrl: 'https://image.api.playstation.com/vulcan/ap/rnd/202402/2916/f4cb0d21711c7205634aa1a321b9dccfba5662b844803934.jpg',
+    description: '• Full Game Access\n• All Characters\n• All Maps\n• Multiplayer Access\n• Special Items\n• Bonus Content',
+    features: [
+      { label: 'Region', value: 'Global' },
+      { label: 'Platform', value: 'Steam' },
+      { label: 'Rating', value: 'M (Mature)' },
+      { label: 'Genre', value: 'Horror' },
+      { label: 'Release', value: '2024' },
+      { label: 'Playtime', value: '30+ hours' }
+    ],
+    requirements: {
+      cpu: 'AMD Ryzen 5 2600X or Intel Core i5-8600',
+      gpu: 'AMD RX 580 or NVIDIA GTX 1060',
+      ram: '12 GB',
+      storage: '50 GB'
+    },
+    rarity: 'legendary'
+  },
+  {
+    game: 'GhostRunner 2',
+    username: '81337572',
+    password: '98974415',
+    imageUrl: 'https://cdn1.epicgames.com/offer/708f57aaa04b42ef885be16c8288f0ac/EGS_Ghostrunner2DeluxeEdition_OneMoreLevel_Editions_S1_2560x1440-d9f74b9787b16400b69c34a3e66d7c9a',
+    description: '• Full Game Access\n• All Weapons\n• All Abilities\n• Special Skins\n• Bonus Content\n• Digital Artbook',
+    features: [
+      { label: 'Region', value: 'Global' },
+      { label: 'Platform', value: 'Steam' },
+      { label: 'Rating', value: 'M (Mature)' },
+      { label: 'Genre', value: 'Action' },
+      { label: 'Release', value: '2023' },
+      { label: 'Playtime', value: '20+ hours' }
+    ],
+    requirements: {
+      cpu: 'AMD Ryzen 5 3600 or Intel Core i7-8700',
+      gpu: 'AMD RX 6700 XT or NVIDIA RTX 3060 Ti',
+      ram: '16 GB',
+      storage: '65 GB SSD'
+    },
+    rarity: 'legendary'
+  },
+  {
+    game: 'Starfield',
+    username: 'hiyondw18',
+    password: 'VBGHJ1234Ibwraj',
+    imageUrl: 'https://preview.redd.it/updated-starfield-wallpaper-date-removed-v0-lydu76n3xfab1.png?auto=webp&s=83098aa0e7f80dfc62cd796212ac4e5d04cc9cb6',
+    description: '• Full Game Access\n• All DLC Content\n• All Ships\n• All Weapons\n• Special Items\n• Bonus Content',
+    features: [
+      { label: 'Region', value: 'Global' },
+      { label: 'Platform', value: 'Steam' },
+      { label: 'Rating', value: 'M (Mature)' },
+      { label: 'Genre', value: 'Action RPG' },
+      { label: 'Release', value: '2023' },
+      { label: 'Playtime', value: '100+ hours' }
+    ],
+    requirements: {
+      cpu: 'AMD Ryzen 5 2600X or Intel Core i7-6800K',
+      gpu: 'AMD Radeon RX 5700 or NVIDIA GeForce RTX 2080',
+      ram: '16 GB',
+      storage: '125 GB SSD'
+    },
+    rarity: 'legendary'
+  },
   {
     game: "Baldur's Gate 3",
     username: 'dudash_ruslan',
@@ -664,6 +730,50 @@ export const steamAccounts = [
     rarity: 'epic'
   },
   // Rare Accounts
+ {
+    game: 'SIFU',
+    username: 'wbtq1090746',
+    password: 'steamok59558843',
+    imageUrl: 'https://image.api.playstation.com/vulcan/img/rnd/202201/1615/fG1luhARIzYwDsjc3J9kv1f0.jpg',
+    description: '• Full Game Access\n• All Skills\n• All Outfits\n• Special Moves\n• Bonus Content\n• Arena Mode',
+    features: [
+      { label: 'Region', value: 'Global' },
+      { label: 'Platform', value: 'Steam' },
+      { label: 'Rating', value: 'M (Mature)' },
+      { label: 'Genre', value: 'Action' },
+      { label: 'Release', value: '2022' },
+      { label: 'Playtime', value: '20+ hours' }
+    ],
+    requirements: {
+      cpu: 'AMD FX-4350 or Intel Core i5-7300HQ',
+      gpu: 'AMD Radeon RX 570 or NVIDIA GTX 1060',
+      ram: '8 GB',
+      storage: '25 GB'
+    },
+    rarity: 'rare'
+  },
+  {
+    game: '60 Seconds Reatomized',
+    username: 'steamok1089838',
+    password: 'steamok345',
+    imageUrl: 'https://image.api.playstation.com/vulcan/ap/rnd/202011/0212/fZyw7Yqwynomn1jF7q2AyXdp.jpg',
+    description: '• Full Game Access\n• All Scenarios\n• All Characters\n• Special Items\n• Bonus Content\n• Survival Mode',
+    features: [
+      { label: 'Region', value: 'Global' },
+      { label: 'Platform', value: 'Steam' },
+      { label: 'Rating', value: 'T (Teen)' },
+      { label: 'Genre', value: 'Survival' },
+      { label: 'Release', value: '2019' },
+      { label: 'Playtime', value: '15+ hours' }
+    ],
+    requirements: {
+      cpu: 'AMD Athlon II X4 or Intel Core 2 Duo',
+      gpu: 'AMD HD 4000 or NVIDIA GeForce 8800',
+      ram: '4 GB',
+      storage: '2 GB'
+    },
+    rarity: 'rare'
+  },
   {
     game: 'Lethal Company',
     username: 'Sb9Bt9Lm3Qm5',
