@@ -181,7 +181,7 @@ export const steamAccounts = [
     game: 'Watch Dogs: Legion',
     username: 'NicoNtiaPhotoSica',
     password: 'WATCH@2029',
-    imageUrl: 'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/10/watch-dogs-legion-ps5-xbox-series-x-4k-30fps.jpg',
+    imageUrl: 'https://image.api.playstation.com/vulcan/ap/rnd/202009/2223/dJs37eVfzwgRbtRQxHUyyWu4.jpg',
     description: '• Full Game Access\n• All DLC Content\n• Season Pass\n• Online Features\n• All Characters\n• Special Operations',
     features: [
       { label: 'Region', value: 'Global' },
