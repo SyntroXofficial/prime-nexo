@@ -133,6 +133,28 @@ export const steamAccounts = [
     },
     rarity: 'mythic'
   },
+ {
+    game: "Assassin's Creed Odyssey",
+    username: 'suku_221',
+    password: 'Suku853715',
+    imageUrl: 'https://image.api.playstation.com/vulcan/ap/rnd/202208/0921/dR6L1YQli1wDo1yKz1kFrg8C.jpg',
+    description: '• Full Game Access\n• All DLC Content\n• Season Pass\n• All Abilities\n• Special Items\n• Legendary Equipment',
+    features: [
+      { label: 'Region', value: 'Global' },
+      { label: 'Platform', value: 'Steam' },
+      { label: 'Rating', value: 'M (Mature)' },
+      { label: 'Genre', value: 'Action RPG' },
+      { label: 'Release', value: '2018' },
+      { label: 'Playtime', value: '100+ hours' }
+    ],
+    requirements: {
+      cpu: 'AMD FX-8350 @ 4.0 GHz or Intel Core i7-3770 @ 3.5 GHz',
+      gpu: 'AMD Radeon R9 290 or NVIDIA GeForce GTX 970',
+      ram: '8 GB',
+      storage: '116 GB'
+    },
+    rarity: 'mythic'
+  },
   {
     game: 'Black Myth: Wukong',
     username: 'tomtran81',
