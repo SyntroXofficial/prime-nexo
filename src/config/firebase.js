@@ -3,6 +3,21 @@ import { getFirestore, enableMultiTabIndexedDbPersistence } from 'firebase/fires
 import { getAuth } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
 
+// Validate required environment variables
+const requiredEnvVars = [
+  'VITE_FIREBASE_API_KEY',
+  'VITE_FIREBASE_AUTH_DOMAIN',
+  'VITE_FIREBASE_PROJECT_ID',
+  'VITE_FIREBASE_STORAGE_BUCKET',
+  'VITE_FIREBASE_MESSAGING_SENDER_ID',
+  'VITE_FIREBASE_APP_ID'
+];
+
+const missingVars = requiredEnvVars.filter(varName => !import.meta.env[varName]);
+if (missingVars.length > 0) {
+  throw new Error(`Missing required environment variables: ${missingVars.join(', ')}`);
+}
+
 // Firebase configuration object
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -10,27 +25,28 @@ const firebaseConfig = {
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-// Initialize Firebase with error handling
 let app;
-try {
-  app = initializeApp(firebaseConfig);
-} catch (error) {
-  console.error('Error initializing Firebase:', error);
-  throw new Error('Failed to initialize Firebase. Check your configuration.');
-}
+let db;
+let auth;
+let storage;
 
-// Initialize services with error handling
-let db, auth, storage;
 try {
+  // Initialize Firebase
+  app = initializeApp(firebaseConfig);
+  
+  // Initialize Firestore
   db = getFirestore(app);
+  
+  // Initialize Auth
   auth = getAuth(app);
+  
+  // Initialize Storage
   storage = getStorage(app);
 
-  // Enable offline persistence with proper error handling
+  // Enable Firestore offline persistence
   enableMultiTabIndexedDbPersistence(db).catch((err) => {
     if (err.code === 'failed-precondition') {
       console.warn('Multiple tabs open, persistence can only be enabled in one tab at a time.');
@@ -39,8 +55,8 @@ try {
     }
   });
 } catch (error) {
-  console.error('Error initializing Firebase services:', error);
-  throw new Error('Failed to initialize Firebase services.');
+  console.error('Firebase initialization error:', error);
+  throw new Error('Failed to initialize Firebase services. Check your configuration.');
 }
 
 // Collection names
@@ -54,7 +70,10 @@ export const COLLECTIONS = {
   SYSTEM: 'system',
   ONLINE_STATUS: 'onlineStatus',
   NOTIFICATIONS: 'notifications',
-  SETTINGS: 'settings'
+  SETTINGS: 'settings',
+  PINS: 'pins',
+  DASHBOARD: 'dashboard',
+  LOGS: 'logs'
 };
 
 // Storage paths
@@ -64,5 +83,4 @@ export const STORAGE_PATHS = {
   ATTACHMENTS: 'attachments'
 };
 
-export { db, auth, storage };
-export default app;
+export { app, db, auth, storage };
