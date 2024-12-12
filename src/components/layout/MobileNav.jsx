@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import SidebarNav from './sidebar/SidebarNav';
 
 export default function MobileNav({ isOpen, onToggle }) {
   const location = useLocation();
@@ -25,7 +26,22 @@ export default function MobileNav({ isOpen, onToggle }) {
         </button>
       </div>
 
-      {/* Rest of the component remains the same */}
+      {/* Mobile Sidebar */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ x: '-100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '-100%' }}
+            transition={{ type: 'tween', duration: 0.3 }}
+            className="fixed top-16 left-0 bottom-0 w-64 bg-black/90 backdrop-blur-md z-50 border-r border-white/10"
+          >
+            <div className="h-full overflow-y-auto">
+              <SidebarNav isCollapsed={false} />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
