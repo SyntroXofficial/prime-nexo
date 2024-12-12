@@ -8,6 +8,7 @@ export default function MainLayout({ children }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const location = useLocation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -20,6 +21,11 @@ export default function MainLayout({ children }) {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
 
   return (
     <div className="min-h-screen bg-[#0f0f0f]">
@@ -41,7 +47,8 @@ export default function MainLayout({ children }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 z-40 md:hidden"
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
             onClick={() => setIsMobileMenuOpen(false)}
           />
         )}
