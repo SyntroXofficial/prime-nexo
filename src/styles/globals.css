@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #dc2626;
+  --primary-dark: #991b1b;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-gray-100;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Add padding top for mobile screens */
+  @media (max-width: 767px) {
+    main {
+      padding-top: 64px;
+    }
+  }
+}
+
+/* Glass Effect */
+.glass-effect {
+  @apply bg-black/80 backdrop-blur-md border border-white/10;
+}
+
+/* Game Card Hover Effects */
+.game-card {
+  @apply relative overflow-hidden rounded-xl transition-all duration-300;
+}
+
+.game-card:hover img {
+  @apply scale-110 transition-transform duration-500;
+}
+
+.game-card-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+}
+
+.game-card-content {
+  @apply absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 767px) {
+  .glass-effect {
+    @apply mx-4;
+  }
+
+  .game-card {
+    @apply mx-4;
+  }
+}
+
+/* Rest of the existing styles... */
