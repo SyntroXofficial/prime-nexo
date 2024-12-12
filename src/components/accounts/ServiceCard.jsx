@@ -26,13 +26,22 @@ export default function ServiceCard({ service }) {
     <>
       <motion.div
         whileHover={{ scale: 1.02 }}
-        className="glass-effect rounded-xl p-6 h-full"
+        className="glass-effect rounded-xl overflow-hidden h-full"
         style={{
           boxShadow: glowStyle.boxShadow,
           animation: `${glowStyle.animation} 3s ease-in-out infinite`
         }}
       >
-        <div className="flex flex-col h-full">
+        <div className="relative h-48 overflow-hidden">
+          <img
+            src={service.imageUrl}
+            alt={service.name}
+            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+        </div>
+
+        <div className="p-6">
           <div className="flex justify-between items-start mb-4">
             <h3 className="text-xl font-bold text-white">{service.name}</h3>
             <span className={`px-3 py-1 rounded-full text-sm font-semibold ${rarityConfig.bgColor} ${rarityConfig.textColor} border ${rarityConfig.borderColor}`}>

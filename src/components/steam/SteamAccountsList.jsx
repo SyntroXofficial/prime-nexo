@@ -12,9 +12,11 @@ export default function SteamAccountsList({ accounts, currentPage, onPageChange 
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="flex flex-nowrap gap-8 overflow-x-auto pb-8 scrollbar-thin scrollbar-thumb-red-500/20 scrollbar-track-black/20">
         {currentAccounts.map((account, index) => (
-          <AccountCard key={index} account={account} />
+          <div key={index} className="flex-none w-[400px]">
+            <AccountCard account={account} />
+          </div>
         ))}
       </div>
       
