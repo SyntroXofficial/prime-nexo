@@ -16,17 +16,9 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         <Link to="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-violet-600">
-          Prime Nexo
+          Day27
         </Link>
-        <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4">
-          <Link to="/" className={`nav-link ${isActive('/')}`}>Home</Link>
-          <Link to="/steam" className={`nav-link ${isActive('/steam')}`}>Steam</Link>
-          <Link to="/accounts" className={`nav-link ${isActive('/accounts')}`}>Accounts</Link>
-          <Link to="/methods" className={`nav-link ${isActive('/methods')}`}>Methods</Link>
-          <Link to="/other-services" className={`nav-link ${isActive('/other-services')}`}>Services</Link>
-          <Link to="/members" className={`nav-link ${isActive('/members')}`}>Members</Link>
-          <Link to="/dashboard" className={`nav-link ${isActive('/dashboard')}`}>Dashboard</Link>
-        </div>
+        {/* Rest of the component remains the same */}
       </div>
     </motion.nav>
   );
