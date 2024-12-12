@@ -1,45 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import { useVerification } from '../hooks/useVerification';
 
 export default function VerificationOverlay() {
-  const [isVisible, setIsVisible] = useState(true);
-  const [verificationAttempted, setVerificationAttempted] = useState(false);
+  const { isVerified, isLoading, verify } = useVerification();
 
-  useEffect(() => {
-    const checkVerification = async () => {
-      try {
-        const response = await fetch('https://restorecord.com/api/verify/Day27', {
-          credentials: 'include'
-        });
-        
-        if (response.ok) {
-          const data = await response.json();
-          if (data.verified) {
-            setIsVisible(false);
-            localStorage.setItem('verified', 'true');
-          }
-        }
-      } catch (error) {
-        console.error('Verification check failed:', error);
-      }
-    };
-
-    const interval = setInterval(() => {
-      if (verificationAttempted) {
-        checkVerification();
-      }
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [verificationAttempted]);
+  if (isVerified || isLoading) return null;
 
   const handleVerificationClick = () => {
-    setVerificationAttempted(true);
     window.open('https://restorecord.com/verify/Day27', '_blank');
   };
-
-  if (!isVisible) return null;
 
   return (
     <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-4">

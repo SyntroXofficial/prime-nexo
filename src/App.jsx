@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainLayout from './components/layout/MainLayout';
 import Home from './pages/Home';
@@ -11,17 +11,11 @@ import Methods from './pages/Methods';
 import Accounts from './pages/Accounts';
 import FAQ from './pages/FAQ';
 import StaffOnly from './pages/StaffOnly';
-import VerificationOverlay from './features/verification/VerificationOverlay';
-import { logVisitor } from './features/staff/utils/visitorTracking';
+import VerificationOverlay from './features/verification/components/VerificationOverlay';
+import { useVerification } from './features/verification/hooks/useVerification';
 
 function App() {
-  const [isVerified, setIsVerified] = useState(false);
-
-  useEffect(() => {
-    const verified = localStorage.getItem('verified') === 'true';
-    setIsVerified(verified);
-    logVisitor(verified);
-  }, []);
+  const { isVerified } = useVerification();
 
   return (
     <Router>
