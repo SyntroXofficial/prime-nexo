@@ -3,8 +3,8 @@ export const faqs = [
     category: "General Questions",
     questions: [
       {
-        question: "What is Prime Nexo?",
-        answer: "Prime Nexo is a premium gaming service platform that provides access to various gaming accounts, cloud gaming services, and streaming content. We offer a curated selection of high-quality accounts across different platforms."
+        question: "What is Day27?",
+        answer: "Day27 is a premium gaming service platform that provides access to various gaming accounts, cloud gaming services, and streaming content. We offer a curated selection of high-quality accounts across different platforms."
       },
       {
         question: "How do I get started?",
@@ -71,7 +71,7 @@ export const faqs = [
       },
       {
         question: "What security measures should I take?",
-        answer: "Always use the provided VPN when accessing accounts, never share credentials, and follow all security guidelines. Enable two-factor authentication on your Prime Nexo account when available."
+        answer: "Always use the provided VPN when accessing accounts, never share credentials, and follow all security guidelines. Enable two-factor authentication on your Day27 account when available."
       },
       {
         question: "Do you store my personal information?",

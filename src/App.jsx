@@ -10,78 +10,23 @@ import Warning from './pages/Warning';
 import Methods from './pages/Methods';
 import Accounts from './pages/Accounts';
 import FAQ from './pages/FAQ';
-import VerifyAuth from './components/auth/VerifyAuth';
-import ProtectedRoute from './components/auth/ProtectedRoute';
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/verify" element={<VerifyAuth />} />
-        <Route path="/" element={
-          <ProtectedRoute>
-            <MainLayout>
-              <Home />
-            </MainLayout>
-          </ProtectedRoute>
-        } />
-        <Route path="/library" element={
-          <ProtectedRoute>
-            <MainLayout>
-              <Library />
-            </MainLayout>
-          </ProtectedRoute>
-        } />
-        <Route path="/library/:gameId" element={
-          <ProtectedRoute>
-            <MainLayout>
-              <GameDetails />
-            </MainLayout>
-          </ProtectedRoute>
-        } />
-        <Route path="/stremio" element={
-          <ProtectedRoute>
-            <MainLayout>
-              <Stremio />
-            </MainLayout>
-          </ProtectedRoute>
-        } />
-        <Route path="/geforce-now" element={
-          <ProtectedRoute>
-            <MainLayout>
-              <GeforceNow />
-            </MainLayout>
-          </ProtectedRoute>
-        } />
-        <Route path="/warning" element={
-          <ProtectedRoute>
-            <MainLayout>
-              <Warning />
-            </MainLayout>
-          </ProtectedRoute>
-        } />
-        <Route path="/methods" element={
-          <ProtectedRoute>
-            <MainLayout>
-              <Methods />
-            </MainLayout>
-          </ProtectedRoute>
-        } />
-        <Route path="/accounts" element={
-          <ProtectedRoute>
-            <MainLayout>
-              <Accounts />
-            </MainLayout>
-          </ProtectedRoute>
-        } />
-        <Route path="/faq" element={
-          <ProtectedRoute>
-            <MainLayout>
-              <FAQ />
-            </MainLayout>
-          </ProtectedRoute>
-        } />
-      </Routes>
+      <MainLayout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/library" element={<Library />} />
+          <Route path="/library/:gameId" element={<GameDetails />} />
+          <Route path="/stremio" element={<Stremio />} />
+          <Route path="/geforce-now" element={<GeforceNow />} />
+          <Route path="/warning" element={<Warning />} />
+          <Route path="/methods" element={<Methods />} />
+          <Route path="/accounts" element={<Accounts />} />
+          <Route path="/faq" element={<FAQ />} />
+        </Routes>
+      </MainLayout>
     </Router>
   );
 }
