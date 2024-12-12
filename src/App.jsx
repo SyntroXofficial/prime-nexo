@@ -9,6 +9,7 @@ import GeforceNow from './pages/GeforceNow';
 import Warning from './pages/Warning';
 import Methods from './pages/Methods';
 import Accounts from './pages/Accounts';
+import AccountDetails from './pages/AccountDetails';
 import FAQ from './pages/FAQ';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/warning" element={<Warning />} />
           <Route path="/methods" element={<Methods />} />
           <Route path="/accounts" element={<Accounts />} />
+          <Route path="/accounts/:accountId" element={<AccountDetails />} />
           <Route path="/faq" element={<FAQ />} />
         </Routes>
       </MainLayout>

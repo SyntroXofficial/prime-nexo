@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { steamAccounts } from '../data/steamAccounts';
-import { RARITY_CONFIGS } from '../utils/rarityConfig';
-import { RARITY_GLOW } from '../utils/glowStyles';
-import { sortByRarity } from '../utils/sortByRarity';
 import SearchBar from '../components/SearchBar';
 import RarityFilter from '../components/RarityFilter';
+import LibraryHeader from '../components/library/LibraryHeader';
+import GameGrid from '../components/library/GameGrid';
 
 export default function Library() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,72 +15,17 @@ export default function Library() {
     return matchesSearch && matchesRarity;
   });
 
-  const sortedGames = sortByRarity(filteredGames);
-
   return (
-    <div className="min-h-screen pt-24 bg-black">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-4xl font-bold text-red-500 mb-4">Game Library</h1>
-          <p className="text-gray-400">Browse our collection of premium gaming accounts</p>
-        </motion.div>
-
-        <SearchBar onSearch={setSearchTerm} />
-        <RarityFilter selectedRarity={selectedRarity} onRarityChange={setSelectedRarity} />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sortedGames.map((game, index) => {
-            const rarityConfig = RARITY_CONFIGS[game.rarity];
-            const glowStyle = RARITY_GLOW[game.rarity];
-
-            return (
-              <Link
-                key={game.game}
-                to={`/library/${game.game.toLowerCase().replace(/\s+/g, '-')}`}
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="relative rounded-xl overflow-hidden group h-[400px]"
-                  style={{
-                    boxShadow: glowStyle.boxShadow,
-                    animation: `${glowStyle.animation} 3s ease-in-out infinite`
-                  }}
-                >
-                  <img
-                    src={game.imageUrl}
-                    alt={game.game}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-2xl font-bold text-white">{game.game}</h3>
-                        <span className={`px-3 py-1 rounded-lg text-sm ${rarityConfig.bgColor} ${rarityConfig.textColor} border ${rarityConfig.borderColor}`}>
-                          {rarityConfig.label}
-                        </span>
-                      </div>
-                      <div className="space-y-2">
-                        {game.features.slice(0, 3).map((feature, idx) => (
-                          <div key={idx} className="flex items-center gap-2">
-                            <span className={`h-1.5 w-1.5 rounded-full ${rarityConfig.bgColor}`}></span>
-                            <span className="text-gray-300">{feature.value}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </Link>
-            );
-          })}
+    <div className="min-h-screen bg-black pt-24">
+      <div className="max-w-7xl mx-auto px-6">
+        <LibraryHeader />
+        
+        <div className="mb-12 space-y-4">
+          <SearchBar onSearch={setSearchTerm} />
+          <RarityFilter selectedRarity={selectedRarity} onRarityChange={setSelectedRarity} />
         </div>
+
+        <GameGrid games={filteredGames} />
       </div>
     </div>
   );
