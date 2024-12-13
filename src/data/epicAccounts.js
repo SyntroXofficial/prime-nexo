@@ -267,7 +267,7 @@ export const epicAccounts = [
     game: 'BeamNG.drive',
     username: 'ohts03444',
     password: 'Ms123123Ms',
-    imageUrl: 'https://cdn.cloudflare.steamstatic.com/steam/apps/284160/header.jpg',
+    imageUrl: 'https://www.beamng.com/attachments/beamng-wallpaper-jpg.120490/',
     description: '• Full Game Access\n• All Vehicles\n• All Maps\n• Mod Support\n• Scenarios\n• Multiplayer Beta',
     features: [
       { label: 'Region', value: 'Global' },
