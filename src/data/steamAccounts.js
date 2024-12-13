@@ -773,6 +773,28 @@ export const steamAccounts = [
     },
     rarity: 'rare'
   },
+{
+  game: 'Farming Simulator 25',
+  username: 'rom4ik199012322',
+  password: '_0Bu4Eb1nj',
+  imageUrl: 'https://image.api.playstation.com/vulcan/ap/rnd/202401/2906/df8c296e89570961418f21078c1f2a347e1919c334f38ace.jpg', // Replace this with an actual Farming Simulator 25 image link if needed
+  description: '• Full Game Access\n• All DLC Content\n• Modern Machinery\n• New Crops and Livestock\n• Multiplayer Support\n• Advanced Simulation Features',
+  features: [
+    { label: 'Region', value: 'Global' },
+    { label: 'Platform', value: 'Steam' },
+    { label: 'Rating', value: 'E (Everyone)' },
+    { label: 'Genre', value: 'Simulation' },
+    { label: 'Release', value: '2025' },
+    { label: 'Playtime', value: 'Unlimited' }
+  ],
+  requirements: {
+    cpu: 'Intel Core i5-8400 or AMD Ryzen 5 2600',
+    gpu: 'NVIDIA GTX 1060 or AMD RX 580',
+    ram: '8 GB',
+    storage: '30 GB SSD'
+  },
+  rarity: 'rare'
+  }
   {
     game: 'Lethal Company',
     username: 'Sb9Bt9Lm3Qm5',
