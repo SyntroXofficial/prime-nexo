@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 import { RARITY_CONFIGS } from '../../utils/rarityConfig';
 import { RARITY_GLOW } from '../../utils/glowStyles';
 
-export default function AccountCard({ account, index }) {
-  const rarityConfig = RARITY_CONFIGS[account.rarity];
-  const glowStyle = RARITY_GLOW[account.rarity];
+export default function RarityCard({ item, index, linkPrefix }) {
+  const rarityConfig = RARITY_CONFIGS[item.rarity];
+  const glowStyle = RARITY_GLOW[item.rarity];
+  
+  const itemId = item.id || item.game?.toLowerCase().replace(/\s+/g, '-');
+  const linkTo = `/${linkPrefix}/${itemId}`;
   
   return (
-    <Link to={`/accounts/${account.id}`}>
+    <Link to={linkTo}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -21,8 +24,8 @@ export default function AccountCard({ account, index }) {
         }}
       >
         <img
-          src={account.imageUrl}
-          alt={account.name}
+          src={item.imageUrl}
+          alt={item.name || item.game}
           className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

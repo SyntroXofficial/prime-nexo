@@ -1,78 +1,45 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { RARITY_CONFIGS } from '../../utils/rarityConfig';
 import { RARITY_GLOW } from '../../utils/glowStyles';
-import PinModal from '../PinModal';
-import MethodContent from './MethodContent';
 
-export default function MethodCard({ method }) {
-  const [isUnlocked, setIsUnlocked] = useState(false);
-  const [showPinModal, setShowPinModal] = useState(false);
-  const [error, setError] = useState('');
+const METHOD_IMAGES = {
+  'xbox-gamepass': 'https://www.stuff.tv/wp-content/uploads/sites/2/2023/04/Game-Pass.png',
+  'steam-family': 'https://i0.wp.com/www.consolecreatures.com/wp-content/uploads/2024/09/Steam-Families.webp',
+  'epic-games': 'https://preview.redd.it/mystery-game-gift-wrapping-v0-7ur8bkyswg7a1.jpg?width=1080&crop=smart&auto=webp&s=25a5e458ff77a7671808f7c0409bded466ad5a8d'
+};
+
+export default function MethodCard({ method, index }) {
   const rarityConfig = RARITY_CONFIGS[method.rarity];
   const glowStyle = RARITY_GLOW[method.rarity];
-
-  const handlePinSubmit = (pin) => {
-    if (pin === method.pin) {
-      setIsUnlocked(true);
-      setShowPinModal(false);
-      setError('');
-    } else {
-      setError('Incorrect PIN');
-    }
-  };
-
+  
   return (
-    <>
+    <Link to={`/methods/${method.id}`}>
       <motion.div
-        whileHover={{ scale: 1.02 }}
-        className="glass-effect rounded-xl overflow-hidden h-full"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: index * 0.1 }}
+        className="relative rounded-xl overflow-hidden h-[300px] group hover:scale-[1.02] transition-all duration-300"
         style={{
           boxShadow: glowStyle.boxShadow,
           animation: `${glowStyle.animation} 3s ease-in-out infinite`
         }}
       >
-        <div className="p-6 flex flex-col h-full">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-bold text-white">{method.title}</h3>
-            <div className={`
-              px-3 py-1 rounded-full ${rarityConfig.bgColor} ${rarityConfig.textColor}
-              text-sm font-bold tracking-wider shadow-lg border ${rarityConfig.borderColor}
-            `}>
+        <img
+          src={METHOD_IMAGES[method.id]}
+          alt={method.title}
+          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute bottom-0 left-0 right-0 p-6">
+          <div className="bg-black/80 backdrop-blur-sm p-4 rounded-lg border border-white/10">
+            <span className={`inline-block px-4 py-2 rounded-lg text-sm ${rarityConfig.bgColor} ${rarityConfig.textColor} border ${rarityConfig.borderColor} w-full text-center font-bold text-lg`}>
               {rarityConfig.label}
-            </div>
-          </div>
-
-          <div className="flex-grow">
-            {isUnlocked ? (
-              <MethodContent method={method} />
-            ) : (
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => setShowPinModal(true)}
-                className={`w-full px-4 py-3 rounded-lg text-white transition-all duration-300 flex items-center justify-center gap-2 ${rarityConfig.bgColor} hover:brightness-110`}
-                style={{
-                  boxShadow: `0 0 20px ${rarityConfig.glowColor}40`
-                }}
-              >
-                View Method
-              </motion.button>
-            )}
+            </span>
           </div>
         </div>
       </motion.div>
-
-      <PinModal
-        isOpen={showPinModal}
-        onClose={() => {
-          setShowPinModal(false);
-          setError('');
-        }}
-        onSubmit={handlePinSubmit}
-        rarity={method.rarity}
-        error={error}
-      />
-    </>
+    </Link>
   );
 }
