@@ -1,5 +1,4 @@
 export const rareAccounts = [
-export const rareAccounts = [
  {
     game: 'SIFU',
     username: 'wbtq1090746',
