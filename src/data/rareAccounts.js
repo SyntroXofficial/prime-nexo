@@ -1,5 +1,5 @@
 export const rareAccounts = [
- {
+  {
     game: 'SIFU',
     username: 'wbtq1090746',
     password: 'steamok59558843',
@@ -43,7 +43,7 @@ export const rareAccounts = [
     },
     rarity: 'rare'
   },
-{
+  {
     game: 'Lethal Company',
     username: 'Sb9Bt9Lm3Qm5',
     password: 'Jp9Bl3Yh8Ab5',
@@ -131,5 +131,4 @@ export const rareAccounts = [
     },
     rarity: 'rare'
   }
-];
 ];
