@@ -793,8 +793,8 @@ export const steamAccounts = [
     ram: '8 GB',
     storage: '30 GB SSD'
   },
-  rarity: 'rare'
-  }
+  rarity: 'rare' 
+}
   {
     game: 'Lethal Company',
     username: 'Sb9Bt9Lm3Qm5',
