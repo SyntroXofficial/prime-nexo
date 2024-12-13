@@ -11,6 +11,9 @@ import Methods from './pages/Methods';
 import Accounts from './pages/Accounts';
 import AccountDetails from './pages/AccountDetails';
 import FAQ from './pages/FAQ';
+import XboxGamePass from './pages/methods/XboxGamePass';
+import SteamFamily from './pages/methods/SteamFamily';
+import EpicGames from './pages/methods/EpicGames';
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
           <Route path="/geforce-now" element={<GeforceNow />} />
           <Route path="/warning" element={<Warning />} />
           <Route path="/methods" element={<Methods />} />
+          <Route path="/methods/xbox-gamepass" element={<XboxGamePass />} />
+          <Route path="/methods/steam-family" element={<SteamFamily />} />
+          <Route path="/methods/epic-games" element={<EpicGames />} />
           <Route path="/accounts" element={<Accounts />} />
           <Route path="/accounts/:accountId" element={<AccountDetails />} />
           <Route path="/faq" element={<FAQ />} />

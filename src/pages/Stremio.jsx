@@ -1,22 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FilmIcon, TvIcon, RssIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
+import { FilmIcon, PuzzlePieceIcon, DeviceTabletIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
+import { RARITY_CONFIGS } from '../utils/rarityConfig';
 
 const features = [
   {
     icon: FilmIcon,
-    title: 'Movies',
-    description: 'Access a vast library of movies from various sources'
+    title: 'Unlimited Content',
+    description: 'Access movies, TV shows, web channels, and more'
   },
   {
-    icon: TvIcon,
-    title: 'TV Shows',
-    description: 'Stream your favorite TV series and shows'
+    icon: PuzzlePieceIcon,
+    title: 'Community Add-ons',
+    description: 'Enhance your experience with powerful add-ons'
   },
   {
-    icon: RssIcon,
-    title: 'Add-ons',
-    description: 'Enhance your experience with community add-ons'
+    icon: DeviceTabletIcon,
+    title: 'Multi-Platform',
+    description: 'Available on Windows, macOS, Linux, Android, and iOS'
   }
 ];
 
@@ -30,8 +31,8 @@ export default function Stremio() {
           className="text-center mb-16"
         >
           <h1 className="text-5xl font-bold text-red-500 mb-6">Stremio Streaming</h1>
-          <p className="text-xl text-white max-w-2xl mx-auto">
-            Enhance your Stremio experience with our curated collection of add-ons and streaming sources.
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            Your gateway to unlimited streaming entertainment. Access movies, TV shows, and more through community-driven add-ons.
           </p>
         </motion.div>
 
@@ -39,11 +40,12 @@ export default function Stremio() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="glass-effect p-8 rounded-xl border border-red-500/20"
+            className="glass-effect p-8 rounded-xl"
           >
-            <h3 className="text-2xl font-bold text-red-500 mb-4">About Stremio</h3>
-            <p className="text-white mb-6">
-              Stremio is a modern media center that's a one-stop solution for your video entertainment. Watch everything you want in one place.
+            <h2 className="text-2xl font-bold text-red-500 mb-4">About Stremio</h2>
+            <p className="text-gray-300 mb-6">
+              Stremio is a modern media center that organizes your video entertainment in one place. With its add-on system,
+              you can access a wide variety of content from different sources.
             </p>
             <a 
               href="https://stremio-addons.netlify.app/"
@@ -59,25 +61,25 @@ export default function Stremio() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="glass-effect p-8 rounded-xl border border-red-500/20"
+            className="glass-effect p-8 rounded-xl"
           >
-            <h3 className="text-2xl font-bold text-red-500 mb-4">Getting Started</h3>
+            <h2 className="text-2xl font-bold text-red-500 mb-4">Getting Started</h2>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <span className="h-6 w-6 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-1">1</span>
-                <span className="text-white">Download and install Stremio</span>
+                <span className="text-gray-300">Download and install Stremio</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="h-6 w-6 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-1">2</span>
-                <span className="text-white">Visit the add-ons catalog</span>
+                <span className="text-gray-300">Visit the add-ons catalog</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="h-6 w-6 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-1">3</span>
-                <span className="text-white">Install your preferred add-ons</span>
+                <span className="text-gray-300">Install your preferred add-ons</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="h-6 w-6 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-1">4</span>
-                <span className="text-white">Start streaming your content</span>
+                <span className="text-gray-300">Start streaming your content</span>
               </li>
             </ul>
           </motion.div>
@@ -90,11 +92,11 @@ export default function Stremio() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 + index * 0.1 }}
-              className="glass-effect p-6 rounded-xl text-center border border-red-500/20"
+              className="glass-effect p-8 rounded-xl text-center"
             >
               <feature.icon className="h-12 w-12 text-red-500 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-red-400 mb-2">{feature.title}</h3>
-              <p className="text-white">{feature.description}</p>
+              <p className="text-gray-400">{feature.description}</p>
             </motion.div>
           ))}
         </div>
