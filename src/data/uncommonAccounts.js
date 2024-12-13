@@ -1,5 +1,5 @@
 export const uncommonAccounts = [
-{
+ {
     game: 'Among Us',
     username: 'elong8600',
     password: 'Midnight6598!',

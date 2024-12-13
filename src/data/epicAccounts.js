@@ -284,4 +284,5 @@ export const epicAccounts = [
       storage: '40 GB'
     },
     rarity: 'epic'
-  },
+  }
+];

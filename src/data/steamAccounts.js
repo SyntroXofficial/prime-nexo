@@ -1,9 +1,9 @@
-import { mythicAccounts } from './accounts/mythicAccounts';
-import { legendaryAccounts } from './accounts/legendaryAccounts';
-import { epicAccounts } from './accounts/epicAccounts';
-import { rareAccounts } from './accounts/rareAccounts';
-import { uncommonAccounts } from './accounts/uncommonAccounts';
-import { commonAccounts } from './accounts/commonAccounts';
+import { mythicAccounts } from './mythicAccounts';
+import { legendaryAccounts } from './legendaryAccounts';
+import { epicAccounts } from './epicAccounts';
+import { rareAccounts } from './rareAccounts';
+import { uncommonAccounts } from './uncommonAccounts';
+import { commonAccounts } from './commonAccounts';
 
 export const steamAccounts = [
   ...mythicAccounts,

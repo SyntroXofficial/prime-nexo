@@ -1,4 +1,4 @@
-export const legendaryAccounts = [ 
+export const legendaryAccounts = [
 {
     game: 'Slime Rancher 2',
     username: 'youzai5144',
@@ -306,4 +306,5 @@ export const legendaryAccounts = [
       storage: '110 GB SSD'
     },
     rarity: 'legendary'
-  },
+  }
+];

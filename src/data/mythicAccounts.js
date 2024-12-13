@@ -130,4 +130,5 @@ export const mythicAccounts = [
       storage: '100 GB SSD'
     },
     rarity: 'mythic'
-  },
+  }
+];

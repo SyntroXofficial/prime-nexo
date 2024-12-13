@@ -152,4 +152,5 @@ export const rareAccounts = [
       storage: '30 GB'
     },
     rarity: 'rare'
-  },
+  }
+];
