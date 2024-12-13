@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
 import RarityFilter from '../components/RarityFilter';
 import { steamAccounts } from '../data/steamAccounts';
@@ -37,31 +38,37 @@ export default function Library() {
           {filteredAccounts.map((game, index) => {
             const rarityConfig = RARITY_CONFIGS[game.rarity];
             const glowStyle = RARITY_GLOW[game.rarity];
+            const gameUrl = `/library/${game.game.toLowerCase().replace(/\s+/g, '-')}`;
 
             return (
-              <motion.div
+              <Link
                 key={game.game}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="relative rounded-xl overflow-hidden aspect-[4/3]"
-                style={{
-                  boxShadow: glowStyle.boxShadow,
-                  animation: `${glowStyle.animation} 3s ease-in-out infinite`
-                }}
+                to={gameUrl}
+                className="block"
               >
-                <img
-                  src={game.imageUrl}
-                  alt={game.game}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className={`w-full py-3 text-center rounded-lg ${rarityConfig.bgColor} ${rarityConfig.textColor} border ${rarityConfig.borderColor} font-bold tracking-wider`}>
-                    {rarityConfig.label}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="relative rounded-xl overflow-hidden"
+                  style={{
+                    boxShadow: glowStyle.boxShadow,
+                    animation: `${glowStyle.animation} 3s ease-in-out infinite`
+                  }}
+                >
+                  <img
+                    src={game.imageUrl}
+                    alt={game.game}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className={`w-full py-3 text-center rounded-lg ${rarityConfig.bgColor} ${rarityConfig.textColor} border ${rarityConfig.borderColor} font-bold tracking-wider`}>
+                      {rarityConfig.label}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             );
           })}
         </div>
