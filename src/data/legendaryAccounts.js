@@ -91,7 +91,7 @@ export const legendaryAccounts = [
     game: 'Starfield',
     username: 'hiyondw18',
     password: 'VBGHJ1234Ibwraj',
-    imageUrl: 'https://preview.redd.it/updated-starfield-wallpaper-date-removed-v0-lydu76n3xfab1.png?auto=webp&s=83098aa0e7f80dfc62cd796212ac4e5d04cc9cb6',
+    imageUrl: 'https://cdn.wallpapersafari.com/49/87/KRO6l0.jpg',
     description: '• Full Game Access\n• All DLC Content\n• All Ships\n• All Weapons\n• Special Items\n• Bonus Content',
     features: [
       { label: 'Region', value: 'Global' },
